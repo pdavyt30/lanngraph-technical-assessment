@@ -50,6 +50,7 @@ class ShortlistItem(TypedDict):
     risks: List[str]
 
 class DealSourcingState(TypedDict):
+    raw_request: str
     criteria: InvestmentCriteria
     candidate_companies: List[Company]
     analyzed_companies: List[AnalyzedCompany]
@@ -61,6 +62,7 @@ class DealSourcingState(TypedDict):
 
 def initial_state() -> DealSourcingState:
     return {
+        "raw_request": "",
         "criteria": {},
         "candidate_companies": [],
         "analyzed_companies": [],
