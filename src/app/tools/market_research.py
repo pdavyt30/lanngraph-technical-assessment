@@ -3,10 +3,8 @@ from ..state import MarketResearch
 
 def mock_market_research(company_name: str, industry: str) -> MarketResearch:
     """
-    Mock determinístico de research:
-    devuelve insights simples sin API externa.
+    Deterministic mock market research.
     """
-    # Reglas simples para variar un poco el texto
     if industry == "SaaS":
         positioning = "Strong recurring revenue dynamics; competitive but scalable market."
         market_share = 0.07
