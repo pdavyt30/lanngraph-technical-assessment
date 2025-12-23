@@ -20,8 +20,8 @@ the workflow:
 5. Simulates an analyst review and refines criteria until satisfied or iteration limit reached
 
 # Architecture (LangGraph)
-```mermaid
-flowchart TD
+```
+mermaid flowchart TD
   A[collect_criteria] --> B[search_targets]
 
   B -->|candidates found| C[analyze_financials]
@@ -37,3 +37,13 @@ flowchart TD
   F -->|no feedback / stop| H((END))
 
   G --> B
+  ```
+
+# Setup (Windows PowerShell)
+
+```
+powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
