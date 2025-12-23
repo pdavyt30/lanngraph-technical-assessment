@@ -12,7 +12,8 @@ def refine_criteria(state: DealSourcingState) -> Dict[str, Any]:
     - Increments iteration to control loops
     """
     patch = mock_llm_call(state, "interpret_feedback")
-
+    trace = list(state["trace"])
+    
     criteria: InvestmentCriteria = dict(state["criteria"])
     for k, v in patch.items():
         if v is None:
@@ -24,7 +25,6 @@ def refine_criteria(state: DealSourcingState) -> Dict[str, Any]:
     if warnings:
         trace.append(f"[refine_criteria] validation_warnings={warnings}")
 
-    trace = list(state["trace"])
     trace.append(f"[refine_criteria] applied patch={patch}")
 
     return {
